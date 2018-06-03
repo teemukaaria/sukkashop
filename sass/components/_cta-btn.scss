@@ -1,0 +1,35 @@
+.cta-btn {
+  &,
+  &:link,
+  &:visited {
+    background-image: linear-gradient(45deg, $color-secondary 50%, $color-white 50%);
+    background-size: 220%;
+    background-position: 100%;
+    padding: 2.5rem 4.5rem;
+    border: none;
+    border-radius: 100px;
+    color: $color-primary;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: $shadow-dark-small;
+    transition: all .2s,
+                background-position .3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    // funky background-position function: cubic-bezier(.35,.98,.29,1.49)
+  }
+
+  &:hover,
+  &:active {
+    color: $color-white;
+    background-position: 0%;
+  }
+  &:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: $shadow-dark-medium;
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-dark-small;
+  }
+}

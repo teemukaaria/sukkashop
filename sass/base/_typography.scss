@@ -1,0 +1,44 @@
+@mixin heading {
+  font-family: $font-family-display;
+  text-transform: uppercase;
+}
+
+.heading-1 {
+  @include heading;
+
+  text-transform: none;
+  font-size: 10rem;
+  font-weight: 300;
+}
+
+.heading-2 {
+  @include heading;
+
+  color: $color-primary;
+  font-size: 4rem;
+  padding: 2rem;
+  display: inline-block;
+  letter-spacing: .9rem;
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background-image: linear-gradient(to right, $color-primary-dark, $color-primary-light);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    letter-spacing: .2rem;
+  }
+    
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem;
+  }
+}
+
+.heading-3 {
+  @include heading;
+
+  font-size: 1.8rem;
+  letter-spacing: .3rem;
+}

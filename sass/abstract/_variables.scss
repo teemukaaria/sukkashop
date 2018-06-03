@@ -1,0 +1,41 @@
+// COLORS
+
+$color-primary: #336;
+$color-primary-dark: #1c1c39;
+$color-primary-light: #448;
+
+$color-secondary: #ff5f5f;
+
+$color-tertiary: #f9e75e;
+
+$color-white: #f0f0f0;
+$color-white-darker: #e6e6e6;
+
+$color-grey-dark: #333;
+
+// FONTS
+
+$font-family-base: 'Open Sans', sans-serif;
+$font-weight-base: 400;
+$font-size-base: 1.4rem;
+$font-family-display: 'Ubuntu', sans-serif;
+
+// SHADOWS
+
+$shadow-dark-small: 0 1rem 2rem rgba(0, 0, 0, .4);
+$shadow-dark-medium: 0 1.5rem 3rem rgba(0, 0, 0, .4);
+$shadow-dark-large: 0 1rem 5rem rgba(0,0,0,0.8);
+
+// RESPONSIVE BREAK POINTS
+
+$bp-smallest: 21.875em;   // 350px
+$bp-smaller: 31.25em;     // 500px
+$bp-small: 43.75em;       // 700px
+$bp-medium: 56.25em;      // 900px
+$bp-larger: 68.75em;      // 1100px
+$bp-largest: 81.25em;     // 1300px
+
+// ANIMATIONS
+
+$to-view-animation-delay: .4s;
+$fade-to-view-translate: 3rem;

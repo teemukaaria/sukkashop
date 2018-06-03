@@ -1,0 +1,95 @@
+.gallery {
+  height: 38.7vw;
+  width: 35vw;
+  position: relative;
+
+  &:hover > * {
+    transform: scale(.95);
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 29.7vw;
+    width: 73vw;
+  }
+  @media only screen and (max-width: $bp-smaller) {
+    height: 46.2vw;
+  }
+
+  &__img {
+    display: block;
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: $shadow-dark-small;
+    transition: all .2s;
+
+    &:hover {
+      z-index: 50;
+      transform: scale(1.1);
+      box-shadow: $shadow-dark-medium;
+    }
+
+    &--1 {
+      z-index: 40;
+      top: 0;
+      right: 7.6%;
+      width: 63%;
+
+      @media only screen and (max-width: $bp-small) {
+        right: 40.6%;
+        width: 40%;
+      }
+      @media only screen and (max-width: $bp-smaller) {    
+        right: 33.6%;
+        width: 52%;
+      }
+    }
+
+    &--2 {
+      z-index: 20;
+      width: 50%;
+      left: 0;
+      top: 12.1%;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 28%;
+        top: 9.1%;
+      }
+      @media only screen and (max-width: $bp-smaller) {
+        width: 39%;
+        top: 14.1%;
+      }
+    }
+
+    &--3 {
+      z-index: 30;
+      width: 60%;
+      right: 0;
+      top: 34.8%;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 32%;
+        top: 5.8%;
+      }
+      @media only screen and (max-width: $bp-smaller) {
+        width: 49%;
+        top: 8.8%;
+      }
+    }
+
+    &--4 {
+      z-index: 10;
+      bottom: 0;
+      width: 70%;
+      left: 10.6%;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 39%;
+        left: 45.6%;
+      }
+      @media only screen and (max-width: $bp-smaller) {
+        width: 51%;
+        left: 33.6%;
+      }
+    }
+  }
+}

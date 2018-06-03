@@ -1,7 +1,7 @@
 .about {
-  padding: 6rem 10rem;
+  padding: 8rem 6rem;
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: minmax(min-content, 60rem) min-content;
   grid-template-rows: min-content min-content min-content;
   justify-content: center;
   justify-items: center;
@@ -11,10 +11,6 @@
 
   @media only screen and (max-width: $bp-largest) {
     grid-column-gap: 6rem;
-  }
-
-  @media only screen and (max-width: $bp-larger) {
-    padding: 3rem 5rem;
   }
 
   @media only screen and (max-width: $bp-small) {

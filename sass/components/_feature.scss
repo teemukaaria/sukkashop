@@ -1,0 +1,34 @@
+.feature {
+  display: grid;
+  grid-template-columns: min-content minmax(min-content, 40rem);
+  align-items: center;
+  grid-column-gap: 5rem;
+  grid-row-gap: .5rem;
+
+  opacity: 0;
+  transition: all 1s;
+
+  &__icon {
+    height: 5rem;
+    width: 5rem;
+    fill: $color-white-darker;
+    grid-row: 1 / 3;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+  }
+
+  &--left {
+    transform: translateX(-50%);
+  }
+
+  &--right {
+    transform: translateX(50%);
+  }
+
+  &--visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

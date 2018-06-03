@@ -13,6 +13,10 @@ $color-white-darker: #e6e6e6;
 
 $color-grey-dark: #333;
 
+// GRADIENTS
+
+$gradient-hero-overlay: linear-gradient(to bottom right, rgba($color-primary-light, .9), rgba($color-primary-dark, .9));
+
 // FONTS
 
 $font-family-base: 'Open Sans', sans-serif;

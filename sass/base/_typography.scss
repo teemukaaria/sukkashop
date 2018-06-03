@@ -14,9 +14,8 @@
 .heading-2 {
   @include heading;
 
-  color: $color-primary;
   font-size: 4rem;
-  padding: 2rem;
+  padding: 1rem;
   display: inline-block;
   letter-spacing: .9rem;
 
@@ -32,7 +31,15 @@
   }
     
   @media only screen and (max-width: $bp-small) {
-    padding: 1rem;
+    padding: .5rem;
+  }
+
+  &--dark {
+    color: $color-primary;
+  }
+
+  &--light {
+    color: $color-white-darker;
   }
 }
 
@@ -41,4 +48,15 @@
 
   font-size: 1.8rem;
   letter-spacing: .3rem;
+
+  &--light {
+    color: $color-white-darker;
+  }
+}
+
+.paragraph {
+
+  &--light {
+    color: $color-white;
+  }
 }

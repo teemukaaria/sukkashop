@@ -1,8 +1,7 @@
 .header {
   height: 90vh;
   min-height: 50rem;
-  background-image: linear-gradient(to bottom right, rgba($color-primary-light, .9), rgba($color-primary-dark, .9)),
-                    url(../img/hero.jpg);
+  background-image: $gradient-hero-overlay, url(../img/hero-1.jpg);
   background-size: cover;
   background-position: bottom;
   color: $color-white;

@@ -1,3 +1,5 @@
 node_modules
 deploy*.js
 css
+.vscode
+img/sock_models

@@ -1,0 +1,43 @@
+.color-select {
+  width: 60rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__item:not(.dropdown__item--selected):hover &__overlay {
+    left: 0rem;
+    font-size: 1.3rem;
+  }
+
+  &__img {
+    height: 145%;
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 3.3rem;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    transform: skewX(-7deg);
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+  }
+
+  &__label {
+    padding: 2rem;
+    transform: skewX(7deg);
+  }
+
+  .dropdown__item--selected {
+    .color-select__overlay {
+      left: 4.6rem;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.ordering {
+  height: 100rem;
+  margin-top: -6rem;
+  display: grid;
+  grid-template-rows: min-content min-content;
+
+  &__heading {
+    justify-self: center;
+  }
+}

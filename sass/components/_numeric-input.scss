@@ -14,7 +14,7 @@
     margin: 0 1.3rem;
     cursor: pointer;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     transition: height .4s,
                 transform .2s;
 
@@ -67,17 +67,21 @@
     }
   }
 
+  &__arrow--down,
+  &__arrow--up {
+    height: 6rem;
+  }
   &__arrow--down {
     position: absolute;
     bottom: 0;
   }
   &__arrow--up .arrow__left,
   &__arrow--up .arrow__right {
-    top: 60%;
+    top: 30%;
   }
   &__arrow--down .arrow__left,
   &__arrow--down .arrow__right {
-    top: 30%;
+    top: 60%;
   }
   
   // hover and focus decorations

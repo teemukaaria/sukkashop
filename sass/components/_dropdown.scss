@@ -1,37 +1,17 @@
 .dropdown {
   position: relative;
-  height: 10.5rem;
+  height: 11.2rem;
 
   &__heading {
-    margin-bottom: .8rem;
-    text-align: center;
+    margin-left: 1.3rem;
   }
 
   &__arrow {
     width: 100%;
     height: 6rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    cursor: pointer;
-
-    &--left, &--right {
-      height: 3px;
-      width: 1.5rem;
-      background-color: $color-grey-dark;
-      position: absolute;
-      top: 50%;
-      transition: all .2s;
-    }
-    &--left {
-      right: 2.8rem;
-      transform: rotate(45deg);
-    }
-    &--right {
-      right: 2rem;
-      transform: rotate(-45deg);
-    }
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    z-index: 200;
   }
 
   &__content {
@@ -39,27 +19,48 @@
     grid-gap: .5rem;
     grid-template-columns: .5rem 1fr .5rem;
     position: absolute;
-    top: 3.8rem;
+    top: 2.8rem;
     left: 0;
     width: 100%;
-    height: 7rem;
-    transition: all .2s;
+    height: 8.0rem;
+    transition: all .4s;
     overflow: hidden;
     background-color: $color-white-darker;
+    border-radius: 6px;
+    z-index: 1000;
+    padding: 1.3rem;
 
     &--3-col {
       grid-template-columns: .5rem repeat(3, 1fr) .5rem;
+
+      /*@media only screen and (max-width: $bp-medium) {
+        grid-template-columns: .5rem repeat(2, 1fr) .5rem;
+      }*/
     }
     
     &--7-row {
       grid-template-rows: repeat(8, min-content);
+
+      /*@media only screen and (max-width: $bp-medium) {
+        grid-template-rows: repeat(11, min-content);
+      }*/
+    }
+    &--3-row {
+      grid-template-rows: repeat(4, min-content);
     }
 
     &:focus {
       outline: none;
+      z-index: 2000;
     }
     &--7-row:focus {
-      height: 38.5rem;
+      height: calc(7 * 4.5rem + 8.3rem);
+      /*@media only screen and (max-width: $bp-medium) {
+        height: calc(10 * 4.5rem + 8.3rem);
+      }*/
+    }
+    &--3-row:focus {
+      height: calc(3 * 4.5rem + 8.3rem);
     }
 
     // fill in the padding columns
@@ -78,39 +79,76 @@
     height: 4rem;
     font-size: 1.2rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: $shadow-dark-smallest;
+    transition: transform 0s .2s,
+                box-shadow 0s .2s;
+    padding: 1.9rem;
+    border-radius: 3px;
+
+    @media only screen and (max-width: $bp-larger) {
+      font-size: 1.1rem;
+    }
 
     &--selected {
       height: 6rem;
       font-size: 2.2rem;
       grid-column: 1 / -1;
+      grid-row: 1 / 2;
       order: -1;
       margin-bottom: .5rem;
+      transition: transform .2s,
+                  box-shadow .2s;
+      box-shadow: $shadow-dark-smallest;
     }
   }
 
   
-  // rotating arrows when open or hovered
-  &__arrow:hover &__arrow--left {
-    transform: rotate(30deg);
-    width: 1.3rem;
-    right: 3rem;
+  // focus and hover states
+  &:focus-within {
+    @include arrowUpFull;
+
+    .arrow:not(.arrow--disabled):hover {
+      @include arrowUpHalf;
+    }
   }
-  &__arrow:hover &__arrow--right {
-    transform: rotate(-30deg);
-    width: 1.3rem;
+  &__content:hover &__item--selected {
+    transform: translateY(-3px);
+    box-shadow: $shadow-dark-smaller;
+  }
+  &__content:hover &__arrow {
+    transform: translateY(-3px);
+  }
+  &:focus-within &__item--selected {
+    transform: translateY(-6px);
+    box-shadow: $shadow-dark-small;
+  }
+  &:focus-within &__arrow {
+    transform: translateY(-6px);
   }
 
-  &:focus-within &__arrow--left {
-    transform: rotate(-45deg);
-  }
-  &:focus-within &__arrow--right {
-    transform: rotate(45deg);
+  // changes to disabled dropboxes
+  &--disabled {
+    opacity: .3;
   }
 
-  &:focus-within &__arrow:hover &__arrow--left {
-    transform: rotate(-30deg);
+  &--disabled &__heading {
+    text-decoration: line-through;
   }
-  &:focus-within  &__arrow:hover &__arrow--right {
-    transform: rotate(30deg);
+
+  &--disabled &__content:focus {
+    height: 6rem;
+  }
+
+  &--disabled:focus-within &__item--selected,
+  &--disabled &__content:hover &__item--selected {
+    transform: translateY(0);
+    box-shadow: $shadow-dark-smallest;
+  }
+  &--disabled:focus-within &__arrow,
+  &--disabled &__content:hover &__arrow {
+    transform: translateY(0);
   }
 }

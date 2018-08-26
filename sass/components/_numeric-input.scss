@@ -1,0 +1,112 @@
+.numeric-input {
+  position: relative;
+
+  &__heading {
+    margin-bottom: 4.3rem;
+    margin-left: 1.3rem;
+  }
+
+  &__content {
+    height: 0;
+    width: calc(100% - 1.3rem);
+    display: grid;
+    grid-template-columns: 1fr 6rem;
+    margin: 0 1.3rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 0;
+    transition: height .4s,
+                transform .2s;
+
+    &:focus {
+      outline: none;
+      height: 16rem;
+      cursor: default;
+    }
+  }
+
+  &__value-box {
+    height: calc(100% + 6rem);
+    margin-top: -3rem;
+  }
+
+  &__value {
+    grid-column: 1 / 2;
+    font-size: 2.2rem;
+    padding: 1.3rem;
+    background-color: white;
+    box-shadow: $shadow-dark-smallest;
+    height: 6rem;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: all .2s;
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+  }
+
+  &__arrow-box {
+    height: calc(100% + 6rem);
+    background: white;
+    position: absolute;
+    right: 0;
+    top: -3rem;
+    border-radius: 0px 3px 3px 0px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      transition: all .2s;
+      box-shadow: $shadow-dark-smallest;
+    }
+  }
+
+  &__arrow--down {
+    position: absolute;
+    bottom: 0;
+  }
+  &__arrow--up .arrow__left,
+  &__arrow--up .arrow__right {
+    top: 60%;
+  }
+  &__arrow--down .arrow__left,
+  &__arrow--down .arrow__right {
+    top: 30%;
+  }
+  
+  // hover and focus decorations
+  &__content:hover &__arrow-box::before {
+    box-shadow: $shadow-dark-smaller;
+  }
+  &__content:focus &__arrow-box::before {
+    box-shadow: $shadow-dark-small;
+  }
+
+  &__content:focus &__arrow--down,
+  &__content:hover &__arrow--down {
+    @include arrowDownHalf;
+  }
+  &__content:focus &__arrow--up,
+  &__content:hover &__arrow--up {
+    @include arrowUpHalf;
+  }
+
+  &__content:hover &__value {
+    box-shadow: $shadow-dark-smaller;
+  }
+  &__content:hover {
+    transform: translateY(-3px);
+  }
+  &__content:focus &__value {
+    box-shadow: $shadow-dark-small;
+  }
+  &__content:focus {
+    transform: translateY(-6px);
+  }
+}

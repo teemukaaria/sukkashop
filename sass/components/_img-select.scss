@@ -1,0 +1,59 @@
+@keyframes hideImgSelectOption {
+  0% {
+    height: 100%;
+    right: 7rem;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    right: 7rem;
+    height: 100%;
+    opacity: 0;
+    top: 50%;
+    transform: scale(.6);
+  }
+}
+
+.img-select {
+  position: relative;
+  height: 67rem;
+  width: 63rem;
+
+  &__option {
+    border-radius: 3px;
+    transition: all .4s,
+                opacity .3s .1s;
+    position: absolute;
+    top: 0;
+
+    &--hidden {
+      opacity: 0;
+      animation: hideImgSelectOption .2s;
+      height: 4rem;
+      right: 0;
+    }
+    &--first {
+      height: 100%;
+      right: 7rem;
+    }
+    &--second {
+      height: 10em;
+      right: 6rem;
+    }
+  }
+
+  &__arrow {
+    transition: all .2s;
+    position: absolute;
+    top: 5rem;
+    right: 0;
+
+    &:hover {
+      transform: translateX(-3px) scale(2);
+    }
+    &:active {
+      transform: translateX(3px) scale(2);
+    }
+  }
+}

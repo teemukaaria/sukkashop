@@ -1,0 +1,164 @@
+
+
+//#region ARROW MIXINS
+@mixin arrowDownFull {
+  .arrow {
+    &__left {
+      right: 2.85rem;
+      transform: rotate(45deg);
+      width: 1.5rem;
+    }
+    &__right {
+      right: 2rem;
+      transform: rotate(-45deg);
+      width: 1.5rem;
+    }
+  }
+}
+@mixin arrowDownHalf {
+  .arrow {
+    &__left {
+      transform: rotate(30deg);
+      width: 1.25rem;
+      right: 2.95rem;
+    }
+    &__right {
+      transform: rotate(-30deg);
+      width: 1.25rem;
+      right: 2.05rem;
+    }
+  }
+}
+@mixin arrowUpFull {
+  .arrow {
+    &__left {
+      right: 2.85rem;
+      transform: rotate(-45deg);
+      width: 1.5rem;
+    }
+    &__right {
+      right: 2rem;
+      transform: rotate(45deg);
+      width: 1.5rem;
+    }
+  }
+}
+@mixin arrowUpHalf {
+  .arrow {
+    &__left {
+      transform: rotate(-30deg);
+      width: 1.25rem;
+      right: 2.95rem;
+    }
+    &__right {
+      transform: rotate(30deg);
+      width: 1.25rem;
+      right: 2.05rem;
+    }
+  }
+}
+@mixin arrowFlat {
+  .arrow {
+    &__left {
+      transform: rotate(0deg);
+      width: 1.1rem;
+      right: 3.1rem;
+    }
+    &__right {
+      transform: rotate(0deg);
+      width: 1.1rem;
+      right: 2.1rem;
+    }
+  }
+}
+@mixin arrowRightFull {
+  .arrow {
+    &__left {    
+      transform: rotate(45deg);
+      width: 1.5rem;
+      right: 2.1rem;
+      top: 0.95rem;
+    }
+    &__right {
+      transform: rotate(-45deg);
+      width: 1.5rem;
+      top: 1.8rem;
+      right: 2.1rem;
+    }
+  }
+}
+@mixin arrowRightHalf {
+  .arrow {
+    &__left {    
+      transform: rotate(60deg);
+      width: 1.4rem;
+      right: 2.1rem;
+      top: 0.85rem;
+    }
+    &__right {
+      transform: rotate(-60deg);
+      width: 1.4rem;
+      top: 1.9rem;
+      right: 2.1rem;
+    }
+  }
+}
+//#endregion
+
+.arrow {
+  width: 6rem;
+  height: 3rem;
+  cursor: pointer;
+  position: relative;
+
+  &__left, &__right {
+    height: 3px;
+    background-color: $color-grey-dark;
+    position: absolute;
+    top: 50%;
+    transition: all .2s;
+  }
+
+  &--down {
+    @include arrowDownFull;
+
+    &:hover {
+      @include arrowDownHalf;
+    }
+  }
+
+  &--up {
+    @include arrowUpFull;
+
+    &:hover {
+      @include arrowUpHalf;
+    }
+  }
+
+  &--right {
+    @include arrowRightFull;
+  }
+  
+  &:active {
+    @include arrowFlat;
+  }
+  &--right:active {
+    @include arrowRightFull;
+  }
+
+  &--large {
+    transform: scale(2);
+  }
+
+  &--disabled {
+    cursor: default;
+
+    &.arrow--down {
+      @include arrowDownFull;
+    }
+
+    &.arrow--up {
+      @include arrowUpFull;
+    }
+  }
+}

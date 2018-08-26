@@ -1,4 +1,5 @@
 @import "abstract/variables";
+@import "abstract/mixins";
 
 @import "base/base";
 @import "base/typography";
@@ -8,8 +9,11 @@
 @import "components/gallery";
 @import "components/feature";
 @import "components/notice";
+@import "components/arrow";
 @import "components/dropdown";
 @import "components/color-select";
+@import "components/img-select";
+@import "components/numeric-input";
 
 @import "layout/header";
 @import "layout/about";

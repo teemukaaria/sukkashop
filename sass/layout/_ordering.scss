@@ -1,10 +1,107 @@
 .ordering {
-  height: 100rem;
+  max-width: 150rem;
+  margin: auto;
   margin-top: -6rem;
+  padding: 2rem;
+  padding-bottom: 5rem;
   display: grid;
-  grid-template-rows: min-content min-content;
+  grid-row-gap: 2rem;
+  grid-column-gap: 4rem;
+  grid-template-columns: min-content [preview-end options-start] 1fr 1fr;
+  grid-template-rows: repeat(5, min-content) 1fr;
+  align-items: start;
+
+  @media only screen and (max-width: $bp-largest) {
+    grid-column-gap: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: [options-start] 1fr 1fr [preview-end];
+    grid-template-rows: repeat(7, min-content);
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
+  @media only screen and (max-width: $bp-smaller) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 
   &__heading {
     justify-self: center;
+    grid-column: 1 / -1;
+  }
+
+  &__sock-select {
+    grid-column: 1 / preview-end;
+    grid-row: 2 / -1;
+    align-self: center;
+
+    @media only screen and (max-width: $bp-largest) {
+      width: 53rem;
+      height: 57rem;
+    }
+    
+    @media only screen and (max-width: $bp-medium) {
+      width: 40rem;
+      height: 44rem;
+
+      .img-select__option--second {
+        height: 10rem;
+      }
+      .img-select__arrow {
+        top: 3rem;
+      }
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-row: 2 / 3;
+      justify-self: center;
+    }
+  }
+
+  .color-select {
+    grid-column: options-start / -1;
+  }
+
+  &__textarea-box {
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
+    grid-column: options-start / -1;
+  }
+
+  &__textarea {
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin-top: 1.3rem;
+    border: none;
+    border-radius: 3px;
+    box-shadow: $shadow-dark-smallest;
+    font-family: $font-family-display;
+    line-height: 1.2;
+    resize: none;
+    transition: all .2s;
+
+    &:hover {
+      box-shadow: $shadow-dark-smaller;
+      transform: translateY(-3px);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: $shadow-dark-small;
+      transform: translateY(-6px);
+    }
+  }
+
+  &__cta-btn { 
+    grid-column: options-start / -1;
+    width: 22rem;
+    align-self: center;
+    justify-self: center;
+
+    @media only screen and (max-width: $bp-largest) {
+      margin-top: 2rem;
+    }
   }
 }

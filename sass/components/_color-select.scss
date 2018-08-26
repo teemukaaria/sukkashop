@@ -1,17 +1,13 @@
 .color-select {
-  width: 60rem;
 
   &__item {
-    display: flex;
-    align-items: center;
-    background-color: white;
     position: relative;
     overflow: hidden;
+    padding: 0;
   }
 
   &__item:not(.dropdown__item--selected):hover &__overlay {
     left: 0rem;
-    font-size: 1.3rem;
   }
 
   &__img {
@@ -27,12 +23,17 @@
     transform: skewX(-7deg);
     display: flex;
     align-items: center;
-    transition: all .3s;
+    transition: left .3s;
   }
 
   &__label {
-    padding: 2rem;
+    padding: 1.5rem;
     transform: skewX(7deg);
+    width: calc(100% - 3.3rem);
+
+    @media only screen and (max-width: $bp-larger) {
+      padding: 1.2rem;
+    }
   }
 
   .dropdown__item--selected {

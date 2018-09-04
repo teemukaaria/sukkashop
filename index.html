@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,21 +93,33 @@
     <section class="ordering" id="ordering">
       <h2 class="heading-2 heading-2--dark ordering__heading">Tilauslomake</h2>
 
-      <div class="img-select ordering__sock-select">
-        <img src="img/sock_models/villejussi_cut.png" alt="Villejussi sukka" class="img-select__option img-select__option--first" secondary="enable">
-        <img src="img/sock_models/mummo_cut.png" alt="Mummo sukka" class="img-select__option img-select__option--second" secondary="disable">
-        <img src="img/sock_models/villejussi_cut.png" alt="Villejussi sukka" class="img-select__option img-select__option--hidden" secondary="enable">
-        <img src="img/sock_models/mummo_cut.png" alt="Mummo sukka" class="img-select__option img-select__option--hidden" secondary="disable">
+      <div class="img-select ordering__sock-select" id="ordering-model">
+        <div class="img-select__option img-select__option--first" secondary="enable">
+          <img src="img/sock_models/villejussi_cut.png" alt="Villejussi sukka" class="img-select__option-img">
+          <p class="img-select__option-text">VilleJussi</p>
+        </div>
+        <div class="img-select__option img-select__option--second" secondary="disable">
+          <img src="img/sock_models/mummo_cut.png" alt="Mummo sukka" class="img-select__option-img">
+          <p class="img-select__option-text">Mummon malli</p>
+        </div>
+        <div class="img-select__option img-select__option--hidden" secondary="enable">
+          <img src="img/sock_models/villejussi_cut.png" alt="Villejussi sukka" class="img-select__option-img">
+          <p class="img-select__option-text">VilleJussi</p>
+        </div>
+        <div class="img-select__option img-select__option--hidden" secondary="disable">
+          <img src="img/sock_models/mummo_cut.png" alt="Mummo sukka" class="img-select__option-img">
+          <p class="img-select__option-text">Mummon malli</p>
+        </div>
         <div class="arrow arrow--right arrow--large img-select__arrow">
-            <div class="arrow__left"></div>
-            <div class="arrow__right"></div>
-          </div>
+          <div class="arrow__left"></div>
+          <div class="arrow__right"></div>
+        </div>
       </div>
 
       <div class="color-select dropdown">
         <h3 class="dropdown__heading heading-3 heading-3--dark">Pääväri</h3>
 
-        <div class="dropdown__content dropdown__content--3-col dropdown__content--7-row" tabindex="0">
+        <div class="dropdown__content dropdown__content--3-col dropdown__content--7-row" tabindex="0" id="ordering-primary-color">
           <div class="arrow arrow--down dropdown__arrow">
             <div class="arrow__left"></div>
             <div class="arrow__right"></div>
@@ -239,7 +251,7 @@
       <div class="color-select color-select--secondary dropdown">
         <h3 class="dropdown__heading heading-3 heading-3--dark">Korosteväri</h3>
 
-        <div class="dropdown__content dropdown__content--3-col dropdown__content--7-row" tabindex="0">
+        <div class="dropdown__content dropdown__content--3-col dropdown__content--7-row" tabindex="0" id="ordering-secondary-color">
           <div class="arrow arrow--down dropdown__arrow">
             <div class="arrow__left"></div>
             <div class="arrow__right"></div>
@@ -370,7 +382,7 @@
 
       <div class="numeric-input" default="41" min="34" max="48" step="1">
         <h3 class="heading-3 heading-3--dark numeric-input__heading">Koko</h3>
-        <div class="numeric-input__content" tabindex="0">
+        <div class="numeric-input__content" tabindex="0" id="ordering-size">
           <div class="numeric-input__value-box">
             <div class="numeric-input__value"></div>
           </div>
@@ -390,7 +402,7 @@
 
      <div class="dropdown">
         <h3 class="heading-3 heading-3--dark dropdown__heading">Varsi</h3>
-        <div class="dropdown__content dropdown__content--3-row" tabindex="0">
+        <div class="dropdown__content dropdown__content--3-row" tabindex="0" id="ordering-length">
           <div class="arrow arrow--down dropdown__arrow">
             <div class="arrow__left"></div>
             <div class="arrow__right"></div>
@@ -405,10 +417,10 @@
 
       <div class="ordering__textarea-box">
         <h3 class="heading-3 headin-3--dark">Vapaa sana</h3>
-        <textarea class="ordering__textarea" name="ordering-text" cols="30" rows="4"></textarea>
+        <textarea class="ordering__textarea" name="ordering-text" cols="30" rows="4" id="ordering-message"></textarea>
       </div>
 
-      <button class="cta-btn cta-btn--dark ordering__cta-btn">Tilaa</button>
+      <button class="cta-btn cta-btn--dark ordering__cta-btn" onclick="order()">Tilaa</button>
 
     </section>
 
@@ -417,10 +429,15 @@
     </section>
   </main>
 
+  <footer class="footer">
+    
+  </footer>
+
   <script src="js/animations.js"></script>
   <script src="js/dropdown.js"></script>
   <script src="js/numeric-input.js"></script>
   <script src="js/img-select.js"></script>
   <script src="js/model-select.js"></script>
+  <script src="js/ordering.js"></script>
 </body>
 </html>

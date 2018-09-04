@@ -11,6 +11,7 @@
     "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.comp.css -o css/style.prefix.css",
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "bundle:js": "bundle-js js/index.js -o js/bundle.js",
     "deploy": "node deploy-ssh.js"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/teemukaaria/sukkashop#readme",
   "devDependencies": {
     "autoprefixer": "^8.5.2",
+    "bundle-js": "^1.0.2",
     "node-sass": "^4.9.0",
     "node-ssh": "^5.1.1",
     "npm-run-all": "^4.1.3",

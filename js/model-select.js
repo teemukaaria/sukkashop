@@ -1,5 +1,4 @@
 // Add functionality to changing selected sock model
-
 function checkSecondaryColorAvailability(ordering) {
   const first = ordering.getElementsByClassName("img-select__option--first")[0];
   const secondaryColorSelect = ordering.getElementsByClassName("color-select--secondary")[0];

@@ -132,6 +132,10 @@
   // changes to disabled dropboxes
   &--disabled {
     opacity: .3;
+
+    .dropdown__content {
+      pointer-events: none;
+    }
   }
 
   &--disabled &__heading {

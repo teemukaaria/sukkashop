@@ -1,0 +1,10 @@
+.footer {
+  background: $color-grey-dark;
+  color: $color-white;
+  padding: 3rem;
+  box-shadow: $shadow-dark-large;
+
+  &__copyright {
+    text-align: right;
+  }
+}

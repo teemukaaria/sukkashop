@@ -1,4 +1,4 @@
-(function() {
+//(function() {
   // Set all event listeners for controlling custom drobpown behaviour
   const dropdowns = document.getElementsByClassName('dropdown');
   for (var i = 0; i < dropdowns.length; i++) {
@@ -32,4 +32,4 @@
     }
   }
 
-})();
+//})();

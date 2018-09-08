@@ -1,5 +1,6 @@
 node_modules
 deploy*.js
 css
+build
 .vscode
-img/sock_models
+img/sock_models/junk

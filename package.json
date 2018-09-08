@@ -4,14 +4,24 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "devserver": "live-server",
-    "compile:scss": "node-sass -wr sass/main.scss css/style.css",
-    "start": "run-p compile:scss devserver",
+    "devserver": "live-server --watch=\"index.html,css/style.css,js/bundle.comp.js\"",
+    "start": "run-p watch:scss watch:js devserver",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.comp.css -o css/style.prefix.css",
-    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "compress:css": "node-sass css/style.prefix.css build/css/style.css --output-style compressed",
+    "watch:scss": "node-sass -wr sass/main.scss css/style.css",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
     "bundle:js": "bundle-js js/index.js -o js/bundle.js",
+    "compile:js": "babel js/bundle.js --out-file js/bundle.comp.js --presets=env",
+    "prepare:js": "npm-run-all bundle:js compile:js",
+    "compress:js": "uglifyjs js/bundle.comp.js -o build/js/bundle.comp.js",
+    "watch:js": "onchange \"js/*.js\" -e \"js/bundle*.js\" -- npm run prepare:js",
+    "build:js": "npm-run-all bundle:js compile:js compress:js",
+    "compress:img": "node jimp.js",
+    "copy:img": "copyfiles img/**/**/* -e img/sock_models/junk/* -e img/SVG/* -s build",
+    "build:img": "npm-run-all compress:img copy:img",
+    "build:html": "copyfiles index.html build",
+    "build": "npm-run-all build:css build:js build:img build:html",
     "deploy": "node deploy-ssh.js"
   },
   "repository": {
@@ -26,10 +36,18 @@
   "homepage": "https://github.com/teemukaaria/sukkashop#readme",
   "devDependencies": {
     "autoprefixer": "^8.5.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "bundle-js": "^1.0.2",
+    "copyfiles": "^2.1.0",
+    "fs": "0.0.1-security",
+    "jimp": "^0.4.0",
     "node-sass": "^4.9.0",
     "node-ssh": "^5.1.1",
     "npm-run-all": "^4.1.3",
-    "postcss-cli": "^5.0.0"
+    "onchange": "^4.1.0",
+    "postcss-cli": "^5.0.0",
+    "uglify-js": "^3.4.9"
   }
 }
